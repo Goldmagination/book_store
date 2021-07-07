@@ -1,0 +1,33 @@
+{% extends 'book_outlet/base.html' %}
+
+{% block body_title %}
+ALl Books
+{% endblock  %}
+
+{% block body_content %}
+<h1>All Books</h1>
+    <ul>
+        {% for book in books  %}
+        
+            <li>
+            <a href="{{book.get_absolute_url}}"> 
+               <h2>
+                {{book.title}}
+               </h2>
+               </a>
+               Rating: {{book.rating}}
+             <p>
+              Author: {{book.author}}
+             </p> 
+               {% if book.is_bestselling %}
+                <p>Bestseller</p>
+               {% endif %}
+               <p>
+               Price: {{book.price}} $
+               </p> 
+            
+            </li>
+            
+        {% endfor %} 
+    </ul>
+{% endblock %}
